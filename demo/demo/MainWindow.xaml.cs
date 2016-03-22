@@ -13,6 +13,11 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Interop;
 
+using MathWorks.MATLAB.NET.Arrays;
+using MathWorks.MATLAB.NET.Utility;
+using test;
+
+
 namespace demo
 {
     /// <summary>
@@ -22,17 +27,14 @@ namespace demo
     {
         bool langChoose = true; //true为中文 false为英文
         paraSetWin parasetwin;
-
         win2D3D temp2D;
 
         public MainWindow()
         {
-            InitializeComponent();
-
-            
-            
-            
+            InitializeComponent(); 
         }
+
+
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
@@ -81,7 +83,8 @@ namespace demo
 
         private void runButton_Click(object sender, RoutedEventArgs e)
         {
-
+            testmatlab testDemo = new testmatlab();
+            testDemo.bearing();
         }
     }
 

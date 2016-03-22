@@ -1,16 +1,29 @@
 %求解雷诺方程，计算不同偏心率的载荷，形成偏心率-载荷数据库。
-clear;
-clc;
-D=input('请输入轴径直径(D)(mm)：');
-B=input('请输入轴瓦宽(B)(m)：');
-Rc=input('请输入半径间隙(Rc)(mm)：');
-AN=input('请输入轴承的转速(N)(rpm)：');
-T0=input('请输入润滑介质初始温度(T0)(℃)：');
-EDA0=input('请输入润滑介质在T0的粘度(u0)(Pa.s)：');
-Ro=input('请输入润滑介质的密度(Ro)(kg/m^3)：');
-C=input('请输入润滑介质的比热容(C)(J/(kg.K))：');
-pc=input('请输入轴承测试最大压强(pc)(Pa)：');
-tc=input('请输入轴承测试最大温度(tc)(℃)：');
+%clear;
+%clc;
+%D=input('请输入轴径直径(D)(mm)：');
+%B=input('请输入轴瓦宽(B)(m)：');
+%Rc=input('请输入半径间隙(Rc)(mm)：');
+%AN=input('请输入轴承的转速(N)(rpm)：');
+%T0=input('请输入润滑介质初始温度(T0)(℃)：');
+%EDA0=input('请输入润滑介质在T0的粘度(u0)(Pa.s)：');
+%Ro=input('请输入润滑介质的密度(Ro)(kg/m^3)：');
+%C=input('请输入润滑介质的比热容(C)(J/(kg.K))：');
+%pc=input('请输入轴承测试最大压强(pc)(Pa)：');
+%tc=input('请输入轴承测试最大温度(tc)(℃)：');
+
+
+D = 50;
+B = 30;
+Rc = 0.05;
+AN = 3000;
+T0 = 35;
+EDA0 = 0.03;
+Ro = 860;
+C = 1880;
+pc = 1000000;
+tc = 50;
+
 AJ=4.184; %热功当量
 PI=3.1415926;
 N=41; %周向节点数
@@ -86,7 +99,7 @@ else
     T=temperature(B,N,M,A,ALFA1,DX,DY,EDA0,T0,P,H);
     P0max=max(max(P));
     Tmax=max(max(T));
-    disp(['偏心率=',num2str(EPSON0),',最大压强=',num2str(6*U*EDA0*R/Rc^2*1000*P0max/1000000),'MPa,最大温度=',num2str(A*Tmax-273),'℃']);
+    %disp(['偏心率=',num2str(EPSON0),',最大压强=',num2str(6*U*EDA0*R/Rc^2*1000*P0max/1000000),'MPa,最大温度=',num2str(A*Tmax-273),'℃']);
 end
 h=Rc.*H;%mm
 p=6*U*EDA0*R/Rc^2*1000.*P;%Pa
@@ -94,7 +107,7 @@ t=A.*T-273; %℃
 theta=0:360/(N-1):360; %°
 z=-B/2:B/(M-1):B/2;  %mm
 [Z,THETA]=meshgrid(z,theta);
-subplot(1,2,1)
-mesh(Z,THETA,p)
-subplot(1,2,2)
-mesh(Z,THETA,t)
+%subplot(1,2,1)
+%mesh(Z,THETA,p)
+%subplot(1,2,2)
+%mesh(Z,THETA,t)
