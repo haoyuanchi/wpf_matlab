@@ -1,0 +1,8 @@
+﻿<Window x:Class="demo.win2D3D"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="win2D3D" Height="412" Width="483">
+    <Grid>
+        
+    </Grid>
+</Window>
